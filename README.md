@@ -1,0 +1,1 @@
+# lojinha-arquitetura-software
