@@ -2,13 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.ucb.lojinha;
+package com.ucb.service;
 
-import com.ucb.lojinha.ItemPedido;
-import com.ucb.lojinha.Pagamento;
-import com.ucb.lojinha.Pedido;
-import com.ucb.lojinha.Produto;
-import static com.ucb.lojinha.GatewayPagamento.confirmarPagamento;
+import com.ucb.model.Cliente;
+import com.ucb.model.ItemPedido;
+import com.ucb.model.Pagamento;
+import com.ucb.model.Pedido;
+import com.ucb.model.Produto;
 import java.util.ArrayList;
 
 /**
@@ -104,7 +104,7 @@ public class ControladorDaLoja {
             
             if (ip.getIdProduto() == idProduto) {
                 
-                produtos.remove(ip);
+                carrinho.remove(ip);
                 return true;
             }
         }
@@ -142,7 +142,7 @@ public class ControladorDaLoja {
 
                 if(p.getIdProduto() == ip.getIdProduto()) {
 
-                    total += p.getValor();
+                    total += p.getValor() * ip.getQuantidade();
                 }
             }
         }
@@ -171,6 +171,7 @@ public class ControladorDaLoja {
         
         Pagamento pagamento = new Pagamento(1, p.getIdPedido(), formaPagamento);
         
-        confirmarPagamento(pagamento, p.getPrecoTotal());
+        GatewayPagamento gateway = GatewayPagamento.getInstancia();
+        gateway.confirmarPagamento(pagamento, p.getPrecoTotal());
     }
 }

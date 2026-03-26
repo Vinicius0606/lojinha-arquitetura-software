@@ -2,13 +2,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
 
-package com.ucb.lojinha;
+package com.ucb.app;
 
 /**
  *
  * @author kurok
  */
 
+import com.ucb.service.ControladorDaLoja;
+import com.ucb.model.Cliente;
 import java.util.Scanner;
 
 public class Lojinha {
@@ -72,9 +74,9 @@ public class Lojinha {
                 loja.adicionarAoCarrinho(id, quantidade);
                 
             } else if(escolha == 3) {
+                boolean temItens = loja.visualizarCarrinho();
                 
-                if(loja.visualizarCarrinho() == false) System.out.println("O carrinho está vazio!");
-                else loja.visualizarCarrinho();
+                if(temItens == false) System.out.println("O carrinho está vazio!");
             }
             else if(escolha == 4) {
                 
@@ -91,14 +93,17 @@ public class Lojinha {
                 
             } else if(escolha == 5) {
                 
+                System.out.println("Detalhes do pedido:");
+                
                 if(loja.visualizarCarrinho() == false) {
                     
                     System.out.println("O carrinho está vazio!");
                     continue;
                 }
                 
-                System.out.println("Detalhes do pedido:");
-                loja.visualizarCarrinho();
+                double precoTotal = loja.calcularTotal();
+                
+                System.out.println("O total da compra é de R$" + String.format("%.2f", precoTotal) + "\n\n");
                 
                 int prosseguir = 0;
                 
