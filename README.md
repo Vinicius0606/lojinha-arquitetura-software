@@ -21,20 +21,20 @@ O projeto foi organizado em pacotes para separar responsabilidades:
 
 ### com.ucb.app
 Contém a classe principal:
-- Lojinha → responsável por iniciar a aplicação e simular a interação do cliente via console.
+- Lojinha - responsável por iniciar a aplicação e simular a interação do cliente via console.
 
 ### com.ucb.model
 Contém as entidades do sistema:
-- Cliente → representa o cliente da loja
-- Produto → representa os produtos disponíveis
-- Pedido → representa uma compra realizada
-- ItemPedido → representa um produto dentro de um pedido
-- Pagamento → representa as informações do pagamento
+- Cliente - representa o cliente da loja
+- Produto - representa os produtos disponíveis
+- Pedido - representa uma compra realizada
+- ItemPedido - representa um produto dentro de um pedido
+- Pagamento - representa as informações do pagamento
 
 ### com.ucb.service
 Contém a lógica do sistema:
-- ControladorDaLoja → responsável por controlar o fluxo da aplicação, gerenciar carrinho, pedidos e pagamentos
-- GatewayPagamento → simula o sistema externo de pagamento
+- ControladorDaLoja - responsável por controlar o fluxo da aplicação, gerenciar carrinho, pedidos e pagamentos
+- GatewayPagamento - simula o sistema externo de pagamento
 
 ## Arquitetura
 
