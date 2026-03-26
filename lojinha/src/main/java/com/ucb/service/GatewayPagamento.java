@@ -5,7 +5,6 @@
 package com.ucb.service;
 
 import com.ucb.model.Pagamento;
-import com.ucb.model.Pagamento;
 
 /**
  *

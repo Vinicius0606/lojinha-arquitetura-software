@@ -29,6 +29,7 @@ public class ControladorDaLoja {
         } else {
          
             System.out.println("Seja bem-vindo " + c.getNome() + "!");
+            clientes.add(c);
         }
     }
     // -------------------------------------------------------------------------
